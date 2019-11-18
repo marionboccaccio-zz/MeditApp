@@ -1,0 +1,26 @@
+{
+  "name": "meditapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "cloudinary": "^1.17.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.1.2",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "hbs": "^4.0.6",
+    "mongoose": "^5.7.11",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^2.2.1"
+  }
+}
