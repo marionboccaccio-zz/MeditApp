@@ -1,6 +1,6 @@
 /* @import './reset.css'; */
 @import './navbar.css';
-/* @import './footer.css'; */
+@import './footer.css';
 /* @import './form.css';
 @import './button.css';
 @import './products.css';
@@ -46,4 +46,8 @@ h4 {
 
 .flexed-item {
     display: flex;
+}
+
+.main {
+    margin-top: 70px;
 }
