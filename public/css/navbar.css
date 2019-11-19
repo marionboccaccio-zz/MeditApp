@@ -77,7 +77,7 @@ h2.logo-item {
     margin-left: auto;
 }
 
-.nav-end-item:first-child {
+.nav-end-item {
     margin-right: 1.2rem;
     color: black;
     text-decoration: none;
