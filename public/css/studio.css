@@ -1,0 +1,35 @@
+.one-studio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - (84px));
+
+}
+
+.one-studio-container>* {
+    margin-bottom: 1.2rem;
+}
+
+.studio-info-header {
+    text-align: center;
+}
+
+.studio-name {
+    font-size: 2.3rem;
+    font-weight: 700;
+}
+
+.studio-address {
+    font-size: 1rem;
+}
+
+
+/* .studio-img-container {
+    width: 35%;
+  } */
+
+.studio-img {
+    max-width: 30vw;
+    max-height: 50vh;
+}

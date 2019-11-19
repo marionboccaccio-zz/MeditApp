@@ -1,0 +1,53 @@
+.home-container {
+    height: 600px;
+    width: 100%;
+    background: url(/images/background2.jpg);
+    background-size: cover;
+}
+
+.main-link {
+    height: 40px;
+    color: white;
+    position: relative;
+    top: 55vh;
+    left: 70vw;
+    opacity: 0.5;
+    text-decoration: none;
+    font-size: 50px;
+}
+
+.wrap {
+    display: flex;
+    margin: 70px 10px;
+    width: 100%;
+}
+
+.subsection {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    width: 33%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.image-wrap {
+    height: 150px;
+    width: 150px;
+    background: burlywood;
+    border-radius: 100%;
+}
+
+.subtitle {
+    height: 50px;
+    width: auto;
+    font-size: 15px;
+    text-align: center;
+}
+
+.sub-description {
+    height: 100px;
+    width: auto;
+    font-size: 15px;
+    text-align: justify;
+}
