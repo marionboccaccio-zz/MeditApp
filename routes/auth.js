@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const protectUserRoute = require("../middleware/checkLoginStatus");
 
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("auth");
 });
 
 router.get("/home", (req, res) => {
@@ -44,6 +44,7 @@ router.post("/signup", (req, res) => {
 
 // SIGN IN
 router.get("/signin", (req, res) => {
+  console.log("YEAH, SIGN IN");
   res.render("signin");
 });
 
