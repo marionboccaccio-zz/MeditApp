@@ -48,7 +48,7 @@ function callback(results, status) {
     }
     console.log(results);
     for (let i = 0; i < results.length; i++) {
-      result1.innerHTML += `<li><span style="font-weight: bold;">${results[i].name}</span> : ${results[i].vicinity}</li>`;
+      result1.innerHTML += `<li><span style="font-weight: italic;">${results[i].name}</span> : ${results[i].vicinity}</li>`;
     }
   }
 }
