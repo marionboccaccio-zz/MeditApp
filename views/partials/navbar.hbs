@@ -1,0 +1,36 @@
+<header class="header">
+    <nav class="nav-wrapper flexed-item">
+        <div class="nav-link-wrapper flexed-item">
+            <div class="nav-logo">
+                <a href="/home" class="flexed-item">
+                    <h2 class="logo-item">MeditApp</h2>
+                </a>
+            </div>
+            <ul class="nav-link flexed-item">
+                <li class="nav-item animated-link">
+                    <a href="/studios">Studios</a>
+                </li>
+                <li class="nav-item animated-link">
+                    <a href="/about">About</a>
+                </li>
+                {{#if isLoggedIn}}
+                <li class="nav-item animated-link nav-item-admin">
+                    <a href="/my-account">My account</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="flexed-item nav-end">
+            {{#unless isLoggedIn}}
+            <a href="/signin" id="nav_login" class="button-ternary flexed-item nav-end-item">
+                <span class="btn-text">Sign in</span>
+            </a>
+            {{/unless}}
+            {{#if isLoggedIn}}
+            <a href="/logout" id="nav_logout" class="button-ternary flexed-item nav-end-item">
+                <span class="btn-text">Log out</span>
+            </a>
+            {{/if}}
+        </div>
+    </nav>
+</header>
