@@ -47,3 +47,7 @@ h4 {
 .flexed-item {
     display: flex;
 }
+
+.main {
+    margin-top: 70px;
+}
