@@ -1,0 +1,27 @@
+.footer-wrap {
+    background: rgb(226, 177, 162);
+    height: 40px;
+    width: 100vw;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-bar {
+    margin-left: 50px;
+    padding-right: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+.icon-bar {
+    margin-right: 50px;
+    padding-right: 10px;
+}
+
+.fab {
+    color: #FFFFFF;
+    margin: 20px;
+    font-size: 1.5em;
+}
