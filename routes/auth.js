@@ -1,17 +1,9 @@
 const express = require("express"); // import express in this module
 const router = new express.Router(); // create an app sub-module (router)
-
-const user = require("./../");
+// const flash = require("connect-flash");
+const user = require("./../models/user");
 const bcrypt = require("bcrypt");
 const protectUserRoute = require("../middleware/checkLoginStatus");
-
-router.get("/", (req, res) => {
-  res.render("auth");
-});
-
-router.get("/home", (req, res) => {
-  res.redirect("/");
-});
 
 //SIGN UP
 router.get("/signup", (req, res) => {
@@ -23,7 +15,7 @@ router.post("/signup", (req, res) => {
     .findOne({ email: req.body.email })
     .then(dbRes => {
       if (dbRes) {
-        req.flash("error", "You already have an account, please signin :)");
+        // req.flash("error", "You already have an account, please signin :)");
         res.redirect("/signin");
       } else {
         const salt = bcrypt.genSaltSync(10);
@@ -32,7 +24,7 @@ router.post("/signup", (req, res) => {
 
         user.create(req.body).then(result => {
           req.session.currentUser = result;
-          req.flash("success", "Welcome");
+          //   req.flash("success", "Welcome");
           res.redirect("/");
         });
       }
@@ -53,15 +45,15 @@ router.post("/signin", (req, res) => {
     .findOne({ email: req.body.email })
     .then(dbRes => {
       if (!dbRes) {
-        req.flash("error", "You don't have an account yet. Please sign up");
+        // req.flash("error", "You don't have an account yet. Please sign up");
         res.redirect("/signup");
       } else {
         if (bcrypt.compareSync(req.body.password, dbRes.password)) {
           req.session.currentUser = dbRes;
-          req.flash("success", "Welcome");
+          //   req.flash("success", "Welcome");
           res.redirect("/");
         }
-        req.flash("error", "wrong credentials");
+        // req.flash("error", "wrong credentials");
         res.redirect("/signin");
       }
     })
@@ -77,4 +69,5 @@ router.get("/logout", (req, res) => {
     res.redirect("/signin");
   });
 });
+
 module.exports = router;
