@@ -3,7 +3,7 @@ const router = new express.Router(); // create an app sub-module (router)
 // const flash = require("connect-flash");
 const user = require("./../models/user");
 const bcrypt = require("bcrypt");
-const protectUserRoute = require("../middleware/checkLoginStatus");
+const protectUserRoute = require("./../middleware/checkLoginStatus");
 
 //SIGN UP
 router.get("/signup", (req, res) => {
@@ -24,6 +24,7 @@ router.post("/signup", (req, res) => {
 
         user.create(req.body).then(result => {
           req.session.currentUser = result;
+          console.log(result);
           //   req.flash("success", "Welcome");
           res.redirect("/");
         });
@@ -69,5 +70,32 @@ router.get("/logout", (req, res) => {
     res.redirect("/signin");
   });
 });
+// My Account
+router.get("/my-account", (req, res) => {
+  res.render("myAccount", { user: req.session.currentUser });
+});
 
+router.post("/my-account/:id", protectUserRoute, (req, res) => {
+  console.log("id", req.params.id);
+  user.findbyIdAndUpdate(req.params.id, {
+    name: req.body.name,
+    lastname: req.body.lastname,
+    address: req.body.address,
+    otherAddress: req.body.address
+  });
+});
+// router.post("/edit-artist/:id", protectAdminRoute, (req, res) => {
+//     artistModel
+//       .findByIdAndUpdate(req.params.id, {
+//         name: req.body.name,
+//         style: req.body.style,
+//         isBand: Boolean(Number(req.body.isBand)),
+//         description: req.body.description
+//       })
+//       .then(dbRes => {
+//         req.flash("success", "artist successfully updated");
+//         res.redirect("/manage-artists");
+//       })
+//       .catch(dbErr => console.error(dbErr));
+//   });
 module.exports = router;

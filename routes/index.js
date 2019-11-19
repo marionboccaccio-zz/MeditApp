@@ -6,6 +6,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/home", (req, res) => {
-  res.redirect("home");
+  res.render("home");
 });
 module.exports = router;
