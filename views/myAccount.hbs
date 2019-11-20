@@ -1,12 +1,42 @@
 <h1>Hello {{user.name}}</h1>
+<div class="account-info">
+    <div class="row" id="userName">
+        <p>Name: <span class="content-box" id="username-content" contenteditable="true"> {{user.name}}</span></p>
+        <button class="btn-edit fas fa-pen"></button>
+    </div>
+    <div class="row" id="userLastname">
+        <p>Last name: <span class="content-box" id="userLastname-content" contenteditable="true">
+                {{user.lastname}}</span></p>
+        <button class="btn-edit fas fa-pen"></button>
+    </div>
+    <div class="row" id="userEmail">
+        <p>Email: <span class="content-box" id="userEmail-content" contenteditable="true"> {{user.email}}</span></p>
+        <button class="btn-edit fas fa-pen"></button>
+    </div>
+    <div class="row" id="userAdress1">
+        <p>Main Address: <span class="content-box" id="userAdress1-content" contenteditable="true">
+                {{user.address1}}</span></p>
+        <button class="btn-edit fas fa-pen"></button>
+    </div>
+    <div class="row" id="userAdress2">
+        <p>Other Address: <span class="content-box" id="userAdress2-content" contenteditable="true">
+                {{user.address2}}</span></p>
+        <button class="btn-edit fas fa-pen"></button>
+    </div>
+    <div id="userCategory">
+        <label for="category">Category: {{user.category}}</label>
 
-<div id="userName">
-    <p>{{user.name}}</p>
-    <p>{{user.lastname}}</p>
-    <p>{{user.email}}</p>
+        <select name="category" id="category" class="input">
+            <option value="yoga">yoga</option>
+            <option value="meditation">meditation</option>
+        </select>
 
+    </div>
+    <div>
+        <button>Ok</button>
+    </div>
 </div>
-<form method="POST" action="/my-account/{{user._id}}" class="form">
+{{!-- <form method="POST" action="/my-account/{{user._id}}" class="form">
     <label for="address">Address</label>
     <input name="address" id="address" class="input" type="text">
     <button>Submit</button>
@@ -15,7 +45,4 @@
     <select name="category" id="category" class="input">
         <option value="yoga">yoga</option>
         <option value="meditation">meditation</option>
-
-    </select>
-
-</form>
+</form> --}}
