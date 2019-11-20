@@ -72,15 +72,20 @@ router.get("/logout", (req, res) => {
 });
 // My Account
 router.get("/my-account", (req, res) => {
-  res.render("myAccount", { user: req.session.currentUser });
+  res.render("myAccount", {
+    user: req.session.currentUser
+  });
 });
 
-router.post("/my-account/:id", protectUserRoute, (req, res) => {
-  console.log("id", req.params.id);
-  user.findbyIdAndUpdate(req.params.id, {
-    address: req.body.address,
-    category: req.body.category
-  });
+router.post("/edit-account/:id", (req, res) => {
+  const updateUser = req.body;
+  user
+    .findOneAndUpdate({ _id: req.params.id }, updateUser)
+    .then(dbres => {
+      req.session.currentUser = dbres;
+      res.redirect("/my-account");
+    })
+    .catch(err => console.log(err));
 });
 
 module.exports = router;
