@@ -80,7 +80,8 @@ app.use(eraseSessionMessage());
 
 app.get("/", (req, res) => {
   console.log("fetched base route");
-  res.render("home");
+
+  res.send("ok");
 });
 
 // Getting/Using router(s)
