@@ -96,6 +96,10 @@ function callback(results, status) {
 function createMarker(place) {
   var marker = new google.maps.Marker({
     map: map,
+    icon: {
+      url: "https://image.flaticon.com/icons/svg/1187/1187564.svg",
+      scaledSize: new google.maps.Size(40, 52)
+    },
     position: place.geometry.location
   });
 
@@ -121,6 +125,10 @@ function geocodeMainAddress(geocoder, resultsMap) {
       resultsMap.setCenter(results[0].geometry.location);
       let marker = new google.maps.Marker({
         map: resultsMap,
+        icon: {
+          url: "https://image.flaticon.com/icons/svg/1119/1119071.svg",
+          scaledSize: new google.maps.Size(40, 52)
+        },
         position: results[0].geometry.location
       });
     } else {
@@ -141,6 +149,10 @@ function geocodeOtherAddress(geocoder, resultsMap) {
       resultsMap.setCenter(results[0].geometry.location);
       let marker = new google.maps.Marker({
         map: resultsMap,
+        icon: {
+          url: "https://image.flaticon.com/icons/svg/787/787535.svg",
+          scaledSize: new google.maps.Size(40, 52)
+        },
         position: results[0].geometry.location
       });
     } else {
