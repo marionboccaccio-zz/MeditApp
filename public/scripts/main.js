@@ -38,6 +38,11 @@ function initMapYoga() {
     };
     service.nearbySearch(request, callback);
   });
+
+  const geocoder = new google.maps.Geocoder();
+
+  geocodeMainAddress(geocoder, map);
+  geocodeOtherAddress(geocoder, map);
 }
 
 function initMapMedit() {
@@ -106,6 +111,44 @@ function clearResults(markers) {
     markers[m].setMap(null);
   }
   markers = [];
+}
+
+function geocodeMainAddress(geocoder, resultsMap) {
+  let address = document.getElementById("map").getAttribute("data-mainAddress");
+
+  geocoder.geocode({ address: address }, function(results, status) {
+    if (status === "OK") {
+      resultsMap.setCenter(results[0].geometry.location);
+      let marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+    } else {
+      console.log(
+        "Geocode was not successful for the following reason: " + status
+      );
+    }
+  });
+}
+
+function geocodeOtherAddress(geocoder, resultsMap) {
+  let address = document
+    .getElementById("map")
+    .getAttribute("data-otherAddress");
+
+  geocoder.geocode({ address: address }, function(results, status) {
+    if (status === "OK") {
+      resultsMap.setCenter(results[0].geometry.location);
+      let marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+    } else {
+      console.log(
+        "Geocode was not successful for the following reason: " + status
+      );
+    }
+  });
 }
 
 // console.log(markers);

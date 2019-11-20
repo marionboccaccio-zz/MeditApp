@@ -17,12 +17,14 @@
     </div>
     <div class="row" id="user-mainAddress">
         <p>Main Address:</p>
-        <input id="mainAddress" type="text" name="mainAddress" value="{{user.mainAddress}}">
+        <input id="mainAddress" type="text" name="mainAddress"
+            value="{{user.mainAddress}}">
         <label class="btn-edit" for="mainAddress"> <i class="fas fa-pen"></i></label>
     </div>
     <div class="row" id="user-otherAddress">
         <p>Other Address:</p>
-        <input id="otherAddress" type="text" name="otherAddress" value="{{user.otherAddress}}">
+        <input id="otherAddress" data-otherAddress="{{user.otherAddress}}" type="text" name="otherAddress"
+            value="{{user.otherAddress}}">
         <label class="btn-edit" for="otherAddress"> <i class="fas fa-pen"></i></label>
     </div>
     <div id="userCategory">
@@ -36,16 +38,5 @@
     </div>
     <div>
         <button data-id="{{user._id}}" id="submitBtn">OK</button>
-        {{!-- <a href="/edit-account/{{user._id}}">OK</a> --}}
     </div>
 </div>
-{{!-- <form method="POST" action="/my-account/{{user._id}}" class="form">
-    <label for="address">Address</label>
-    <input name="address" id="address" class="input" type="text">
-    <button>Submit</button>
-
-    <label for="category">category</label>
-    <select name="category" id="category" class="input">
-        <option value="yoga">yoga</option>
-        <option value="meditation">meditation</option>
-</form> --}}

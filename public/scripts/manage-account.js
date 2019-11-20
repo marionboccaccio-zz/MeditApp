@@ -17,24 +17,3 @@ function submit(id) {
 }
 
 submitBtn.onclick = () => submit(submitBtn.getAttribute("data-id"));
-
-// for (let i = 0; i < btnEdit.length; i++) {
-//   btnEdit[i].onclick = e => {
-//     const inputData = e.target.previousElementSibling;
-//     console.log(user);
-//     inputData.focus = e => {
-//       inputData.addEventListener("keydown", event => {
-//         if (event.keyCode === 13) {
-//           event.preventDefault();
-//           inputData.blur();
-//           axios
-//             .patch(`/edit-account/${user.id}`, {
-//               name: inputData.textContent.trim()
-//             })
-//             .then(apiRes => console.log(apiRes))
-//             .catch();
-//         }
-//       });
-//     };
-//   };
-// }
