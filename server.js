@@ -79,9 +79,7 @@ app.use(checkloginStatus);
 app.use(eraseSessionMessage());
 
 app.get("/", (req, res) => {
-  console.log("fetched base route");
-
-  res.send("ok");
+  res.render("home");
 });
 
 // Getting/Using router(s)
