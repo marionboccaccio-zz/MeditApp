@@ -5,13 +5,8 @@ var request;
 var service;
 var markers = [];
 const result1 = document.getElementById("results_list");
-<<<<<<< HEAD
-
-function initMap1() {
-=======
 var center;
 function initMap() {
->>>>>>> 2c0268fc1919a26716539ee262af100af86aab13
   var center = new google.maps.LatLng(48.86667, 2.349014);
   map = new google.maps.Map(document.getElementById("map"), {
     center: center,
@@ -21,11 +16,7 @@ function initMap() {
   request = {
     location: center,
     radius: "1000",
-<<<<<<< HEAD
-    name: "yoga"
-=======
     name: ["yoga"]
->>>>>>> 2c0268fc1919a26716539ee262af100af86aab13
   };
   infoWindow = new google.maps.InfoWindow();
 
@@ -98,12 +89,12 @@ function initMap2() {
       position: place.geometry.location
     });
 
-  google.maps.event.addListener(marker, "mouseover", function() {
-    infoWindow.setContent(place.name);
-    infoWindow.open(map, this);
-  });
-  return marker;
-}
+    google.maps.event.addListener(marker, "mouseover", function() {
+      infoWindow.setContent(place.name);
+      infoWindow.open(map, this);
+    });
+    return marker;
+  }
 
   function clearResults(markers) {
     for (var m in markers) {
