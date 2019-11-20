@@ -6,7 +6,7 @@ var service;
 var markers = [];
 const result1 = document.getElementById("results_list");
 
-function initMap() {
+function initMap1() {
   var center = new google.maps.LatLng(48.86667, 2.349014);
   map = new google.maps.Map(document.getElementById("map"), {
     center: center,
@@ -16,7 +16,7 @@ function initMap() {
   request = {
     location: center,
     radius: "1000",
-    name: ["yoga", "meditation"]
+    name: "yoga"
   };
   infoWindow = new google.maps.InfoWindow();
 
@@ -34,7 +34,41 @@ function initMap() {
     var request = {
       location: latLng,
       radius: "1000",
-      name: "méditation"
+      name: "yoga"
+    };
+    service.nearbySearch(request, callback);
+  });
+}
+
+function initMap2() {
+  var center = new google.maps.LatLng(48.86667, 2.349014);
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: center,
+    zoom: 12
+  });
+
+  request = {
+    location: center,
+    radius: "1000",
+    name: "meditation"
+  };
+  infoWindow = new google.maps.InfoWindow();
+
+  service = new google.maps.places.PlacesService(map);
+
+  service.nearbySearch(request, callback);
+
+  google.maps.event.addListener(map, "click", function(event) {
+    clearResults(markers);
+    const latLng = {
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng()
+    };
+
+    var request = {
+      location: latLng,
+      radius: "1000",
+      name: "meditation"
     };
     service.nearbySearch(request, callback);
   });
@@ -57,7 +91,7 @@ function createMarker(place) {
   });
 
   google.maps.event.addListener(marker, "mouseover", function() {
-    infoWindow.setContent(place.name, place.vicinity);
+    infoWindow.setContent(place.name);
     infoWindow.open(map, this);
   });
   return marker;
@@ -72,4 +106,5 @@ function clearResults(markers) {
 }
 
 // console.log(markers);
-google.maps.event.addDomListener(window, "load", initMap);
+google.maps.event.addDomListener(window, "load", initMap1);
+google.maps.event.addDomListener(window, "load", initMap2);
