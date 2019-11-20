@@ -90,13 +90,15 @@ const userRouter = require("./routes/user.js");
 const authRouter = require("./routes/auth.js");
 const apiRouter = require("./routes/api.js");
 const reviewRouter = require("./routes/review.js");
-const studiosRouter = require("./routes/studios.js");
+const yogaRouter = require("./routes/yoga.js");
+const meditationRouter = require("./routes/meditation.js");
 
 app.use(userRouter);
 app.use(authRouter);
 app.use("/api", apiRouter);
 app.use(reviewRouter);
-app.use(studiosRouter);
+app.use(yogaRouter);
+app.use(meditationRouter);
 
 const listener = app.listen(process.env.PORT, () => {
   console.log(`app started at ${process.env.SITE_URL}:${process.env.PORT}`);
