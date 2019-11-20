@@ -7,13 +7,14 @@ const userSchema = new Schema({
   lastname: String,
   email: String,
   password: String,
-  address1: String,
-  address2: String,
+  mainAddress: String,
+  otherAddress: String,
   category: {
     type: String,
     enum: ["yoga", "meditation"]
   },
-  favoris: String
+  favoris: [],
+  reviews: []
 });
 
 const userModel = mongoose.model("User", userSchema);

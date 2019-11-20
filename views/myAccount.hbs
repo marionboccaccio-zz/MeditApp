@@ -1,27 +1,29 @@
 <h1>Hello {{user.name}}</h1>
 <div class="account-info">
     <div class="row" id="userName">
-        <p>Name: <span class="content-box" id="username-content" contenteditable="true"> {{user.name}}</span></p>
-        <button class="btn-edit fas fa-pen"></button>
+        <p>Name:</p>
+        <input id="name" type="text" name="name" value="{{user.name}}">
+        <label class="btn-edit" for="name"><i class="fas fa-pen"></i></label>
     </div>
     <div class="row" id="userLastname">
-        <p>Last name: <span class="content-box" id="userLastname-content" contenteditable="true">
-                {{user.lastname}}</span></p>
-        <button class="btn-edit fas fa-pen"></button>
+        <p>Last name:</p>
+        <input id="lastname" type="text" name="lastname" value="{{user.lastname}}">
+        <label class="btn-edit" for="lastname"><i class="fas fa-pen"></i></label>
     </div>
     <div class="row" id="userEmail">
-        <p>Email: <span class="content-box" id="userEmail-content" contenteditable="true"> {{user.email}}</span></p>
-        <button class="btn-edit fas fa-pen"></button>
+        <p>Email:</p>
+        <input id="email" type="text" name="email" value="{{user.email}}">
+        <label class="btn-edit" for="email"><i class="fas fa-pen"></i></label>
     </div>
-    <div class="row" id="userAdress1">
-        <p>Main Address: <span class="content-box" id="userAdress1-content" contenteditable="true">
-                {{user.address1}}</span></p>
-        <button class="btn-edit fas fa-pen"></button>
+    <div class="row" id="user-mainAddress">
+        <p>Main Address:</p>
+        <input id="mainAddress" type="text" name="mainAddress" value="{{user.mainAddress}}">
+        <label class="btn-edit" for="mainAddress"> <i class="fas fa-pen"></i></label>
     </div>
-    <div class="row" id="userAdress2">
-        <p>Other Address: <span class="content-box" id="userAdress2-content" contenteditable="true">
-                {{user.address2}}</span></p>
-        <button class="btn-edit fas fa-pen"></button>
+    <div class="row" id="user-otherAddress">
+        <p>Other Address:</p>
+        <input id="otherAddress" type="text" name="otherAddress" value="{{user.otherAddress}}">
+        <label class="btn-edit" for="otherAddress"> <i class="fas fa-pen"></i></label>
     </div>
     <div id="userCategory">
         <label for="category">Category: {{user.category}}</label>
@@ -33,7 +35,8 @@
 
     </div>
     <div>
-        <button>Ok</button>
+        <button data-id="{{user._id}}" id="submitBtn">OK</button>
+        {{!-- <a href="/edit-account/{{user._id}}">OK</a> --}}
     </div>
 </div>
 {{!-- <form method="POST" action="/my-account/{{user._id}}" class="form">
