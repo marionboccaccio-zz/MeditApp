@@ -78,6 +78,9 @@ function initMapMedit() {
     };
     service.nearbySearch(request, callback);
   });
+  const geocoder = new google.maps.Geocoder();
+  geocodeMainAddress(geocoder, map);
+  geocodeOtherAddress(geocoder, map);
 }
 
 function callback(results, status) {
@@ -87,7 +90,7 @@ function callback(results, status) {
     }
     for (let i = 0; i < results.length; i++) {
       console.log("photo", results[i].photos);
-      result1.innerHTML += `<li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li>`;
+      result1.innerHTML += `<a href="/yoga/${results[i].id}}"><li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li></a>`;
       console.log(results);
     }
   }

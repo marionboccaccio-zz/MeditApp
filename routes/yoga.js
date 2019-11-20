@@ -7,4 +7,8 @@ router.get("/yoga", (req, res) => {
   });
 });
 
+router.get("/yoga/:id", (req, res) => {
+  res.render("studio-yoga");
+});
+
 module.exports = router;
