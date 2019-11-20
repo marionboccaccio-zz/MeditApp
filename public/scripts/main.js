@@ -81,7 +81,7 @@ function callback(results, status) {
       markers.push(createMarker(results[i]));
     }
     for (let i = 0; i < results.length; i++) {
-      result1.innerHTML += `<li><span style="font-weight: italic;">${results[i].name}</span> : ${results[i].vicinity}</li>`;
+      result1.innerHTML += `<li><span style="font-weight: italic;">${results[i].name}</span> : <br> ${results[i].vicinity} <br> ${results[i].photos}</li>`;
     }
   }
 }
