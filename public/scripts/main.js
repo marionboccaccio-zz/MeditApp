@@ -81,10 +81,13 @@ function callback(results, status) {
       markers.push(createMarker(results[i]));
     }
     for (let i = 0; i < results.length; i++) {
-      result1.innerHTML += `<li><span style="font-weight: italic;">${results[i].name}</span> : <br> ${results[i].vicinity} <br> ${results[i].photos}</li>`;
+      console.log("photo", results[i].photos);
+      result1.innerHTML += `<li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li>`;
+      console.log(results);
     }
   }
 }
+
 function createMarker(place) {
   var marker = new google.maps.Marker({
     map: map,

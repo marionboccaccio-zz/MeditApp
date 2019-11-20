@@ -10,6 +10,7 @@
 @import './one-product.css'; */
 @import './home.css';
 @import './yoga.css';
+@import '.meditation.css';
 
 
 @import url('https://fonts.googleapis.com/css?family=Faster+One|Oswald:300,400,500,700|Source+Sans+Pro:300,400,600,700&display=swap');
@@ -23,6 +24,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     display: flex;
     flex-direction: column;
+    /* overflow: hidden; */
 }
 
 h1 {

@@ -1,7 +1,7 @@
 .footer-wrap {
     background: rgb(226, 177, 162);
     height: 40px;
-    width: 100vw;
+    /* width: 100vw; */
     box-sizing: content-box;
     display: flex;
     justify-content: space-between;
