@@ -2,7 +2,7 @@
 
 // // const Schema = mongoose.Schema;
 
-// // const studioSchema = new Schema({
+// // const yogaSchema = new Schema({
 // //   name: String,
 // //   address: String,
 // //   course: {
@@ -16,6 +16,6 @@
 // //   }
 // // });
 
-// // const userModel = mongoose.model("Studio", studioSchema);
+// // const userModel = mongoose.model("Studio", yogaSchema);
 
 // module.exports = studioModel;
