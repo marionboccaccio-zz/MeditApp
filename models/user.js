@@ -8,11 +8,11 @@ const userSchema = new Schema({
   email: String,
   password: String,
   address: String,
-  otherAddress: String,
   category: {
     type: String,
     enum: ["yoga", "meditation"]
-  }
+  },
+  favoris: String
 });
 
 const userModel = mongoose.model("User", userSchema);

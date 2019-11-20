@@ -78,24 +78,9 @@ router.get("/my-account", (req, res) => {
 router.post("/my-account/:id", protectUserRoute, (req, res) => {
   console.log("id", req.params.id);
   user.findbyIdAndUpdate(req.params.id, {
-    name: req.body.name,
-    lastname: req.body.lastname,
     address: req.body.address,
-    otherAddress: req.body.address
+    category: req.body.category
   });
 });
-// router.post("/edit-artist/:id", protectAdminRoute, (req, res) => {
-//     artistModel
-//       .findByIdAndUpdate(req.params.id, {
-//         name: req.body.name,
-//         style: req.body.style,
-//         isBand: Boolean(Number(req.body.isBand)),
-//         description: req.body.description
-//       })
-//       .then(dbRes => {
-//         req.flash("success", "artist successfully updated");
-//         res.redirect("/manage-artists");
-//       })
-//       .catch(dbErr => console.error(dbErr));
-//   });
+
 module.exports = router;
