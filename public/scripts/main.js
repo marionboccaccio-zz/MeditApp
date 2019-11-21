@@ -83,6 +83,46 @@ function initMapMedit() {
   geocodeOtherAddress(geocoder, map);
 }
 
+function initMapStudio() {
+  console.log("here");
+  var center = new google.maps.LatLng(48.86667, 2.349014);
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: center,
+    zoom: 12
+  });
+
+  request = {
+    location: center,
+    radius: "1000",
+    name: ["yoga"]
+  };
+  infoWindow = new google.maps.InfoWindow();
+
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+
+  google.maps.event.addListener(map, "click", function(event) {
+    result1.innerHTML = "";
+    clearResults(markers);
+    const latLng = {
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng()
+    };
+
+    var request = {
+      location: latLng,
+      radius: "1000",
+      name: ["yoga"]
+    };
+    service.nearbySearch(request, callback);
+  });
+
+  const geocoder = new google.maps.Geocoder();
+
+  geocodeMainAddress(geocoder, map);
+  geocodeOtherAddress(geocoder, map);
+}
+
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (let i = 0; i < results.length; i++) {
@@ -122,7 +162,6 @@ function clearResults(markers) {
 
 function geocodeMainAddress(geocoder, resultsMap) {
   let address = document.getElementById("map").getAttribute("data-mainAddress");
-
   geocoder.geocode({ address: address }, function(results, status) {
     if (status === "OK") {
       resultsMap.setCenter(results[0].geometry.location);
@@ -141,7 +180,6 @@ function geocodeMainAddress(geocoder, resultsMap) {
     }
   });
 }
-
 function geocodeOtherAddress(geocoder, resultsMap) {
   let address = document
     .getElementById("map")
@@ -166,12 +204,11 @@ function geocodeOtherAddress(geocoder, resultsMap) {
   });
 }
 
-// console.log(markers);
 if (location.pathname == "/yoga") {
   google.maps.event.addDomListener(window, "load", initMapYoga);
 } else if (location.pathname == "/meditation") {
   google.maps.event.addDomListener(window, "load", initMapMedit);
-}
-if (location.pathname == "/studio/:id") {
-  google.maps.event.addDomListener(window, "load", initMapYoga);
+} else if (window.location.pathname.match(/studio/g)) {
+  console.log("here2");
+  google.maps.event.addDomListener(window, "load", initMapStudio);
 }
