@@ -1,14 +1,16 @@
-.main {
+/* .main {
     margin-top: 70px;
     width: 400px;
     margin-left: 50px;
     margin-top: 70px;
     height: 78vh;
-}
+} */
 
 .sign-form-container {
     border: 1px solid white;
     background-color: white;
     padding: 50px;
     margin-top: 80px;
+    max-width: 400px;
+    margin-left: 50px;
 }
