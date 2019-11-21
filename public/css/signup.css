@@ -1,16 +1,79 @@
-/* .main {
-    margin-top: 70px;
-    width: 400px;
-    margin-left: 50px;
-    margin-top: 70px;
-    height: 78vh;
-} */
+.form-title {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
 
-.sign-form-container {
-    border: 1px solid white;
-    background-color: white;
+.cont-signup {
+    overflow: hidden;
+    position: relative;
+    height: 500px;
+    margin: 42px auto 10px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 750px;
     padding: 50px;
-    margin-top: 80px;
-    max-width: 400px;
-    margin-left: 50px;
+    justify-content: space-around;
+}
+
+.signup-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0px 110px;
+    width: 500px;
+}
+
+.label-ref {
+    width: 200px;
+    margin-top: 18px;
+}
+
+#form-user-signup {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-signup {
+    display: block;
+    width: 395px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    margin-top: -14px;
+}
+
+.create-account-btn {
+    margin-top: 29px;
+    margin-bottom: 12px;
+    margin-left: 64px;
+    padding-right: 51px;
+    color: #d4af7a;
+    border: solid 1px #d4af7a;
+    background: white;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 231px;
+    padding-left: 65px;
+    text-decoration: none;
+}
+
+.submit-signup {
+    margin-top: 90px;
+    margin-bottom: 12px;
+    color: white;
+    border: solid 1px #d4af7a;
+    background: #d4af7a;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 222px;
+    padding: 1px 90px;
+    text-decoration: none;
 }

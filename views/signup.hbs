@@ -1,29 +1,22 @@
-<section class="sign-form-container">
+<section class="cont-signup">
     <header class="form-header">
-        <h1 class="form-title">Be Zen, and signUp</h1>
+        <h1 class="form-title">BE ZEN AND SIGNUP</h1>
     </header>
-    <form method="post" action="/signup" id="form_user">
-        <div class="form-item-wrapper flexed-item">
-            <label for="firstname" class="label-ref label">Name</label>
-            <input name="name" id="firstname" type="text" class="input-text input" placeholder="Hanna" required
-                value="Hanna">
-        </div>
-        <div class="form-item-wrapper flexed-item">
-            <label for="lastname" class="label-ref label">Last Name</label>
-            <input name="lastname" id="lastname" type="text" class="input-text input" placeholder="Marion" required
-                value="Marion">
-        </div>
-        <div class="form-item-wrapper flexed-item">
-            <label for="email" class="label-ref label">Email</label>
-            <input name="email" id="email" type="email" class="input-text input" placeholder="hanna.marion@gmail.com"
-                required value="hello@yoga.com">
-        </div>
-        <div class="form-item-wrapper flexed-item">
-            <label for="password" class="label-ref label">Password</label>
-            <input name="password" id="password" type="password" class="input-text input" placeholder="••••••" required
-                value="1234">
-        </div>
-        <button class="button-primary white">Create Account</button>
+    <form method="post" action="/signup" class="signup-form" id="form-user-signup">
+
+        <label for="firstname" class="label-ref">Name</label> <br>
+        <input name="name" id="firstname" type="text" class="input-signup" required>
+
+        <label for="lastname" class="label-ref">Last Name</label> <br>
+        <input name="lastname" id="lastname" type="text" class="input-signup" required>
+
+        <label for="email" class="label-ref">Email</label> <br>
+        <input name="email" id="email" type="email" class="input-signup" required>
+
+        <label for="password" class="label-ref">Password</label> <br>
+        <input name="password" id="password" type="password" class="input-signup" required>
+
+        <button class="create-account-btn">Create Account</button>
     </form>
-    <p class="form-sub-infos">Already have an account ? <a href="/signin" class="button-link-form">Sign In</a></p>
+    <p class="form-sub-infos">Already have an account ? <a href="/signin" class="submit-signup">Sign In</a></p>
 </section>
