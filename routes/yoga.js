@@ -2,6 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const user = require("./../models/user");
 const studioModel = require("./../models/studio");
+const reviewModel = require("./../models/review");
 const uploader = require("./../config/cloudinary");
 
 router.get("/yoga", (req, res) => {
@@ -11,17 +12,22 @@ router.get("/yoga", (req, res) => {
 });
 
 router.get("/studio/:place_id", (req, res) => {
-  console.log("ici");
   studioModel
     .findOne({ place_id: req.params.place_id })
     .then(dbRes => {
       if (dbRes) {
-        res.render("studio-yoga", { studio: dbRes });
+        res.render("studio-yoga", {
+          studio: dbRes,
+          user: req.session.currentUser
+        });
       } else {
         studioModel
           .create({ place_id: req.params.place_id })
           .then(createdStudio => {
-            res.render("studio-yoga", { studio: createdStudio });
+            res.render("studio-yoga", {
+              studio: createdStudio,
+              user: req.session.currentUser
+            });
           })
           .catch(err => console.log(err));
       }
@@ -48,15 +54,19 @@ router.post("/edit-studio/:id", uploader.single("picture"), (req, res) => {
     .catch(dbErr => console.log(dbErr));
 });
 
-router.post("/edit-account/:id", (req, res) => {
-  const updateUser = req.body;
-  user
-    .findOneAndUpdate({ _id: req.params.id }, updateUser, { new: true })
-    .then(dbres => {
-      req.session.currentUser = dbres;
-      res.send(dbres);
+router.post("/add-review/:id", (req, res) => {
+  const newReview = {
+    comment: req.body.comment,
+    user: req.session.currentUser,
+    studio: req.params.id
+  };
+  reviewModel
+    .create(newReview, { new: true })
+    .then(dbRes => {
+      console.log(dbRes);
+      res.send("OK");
     })
-    .catch(err => console.log(err));
+    .catch(dbErr => console.log(dbErr));
 });
 
 module.exports = router;
