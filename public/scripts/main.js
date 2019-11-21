@@ -5,6 +5,7 @@ var request;
 var service;
 var markers = [];
 const result1 = document.getElementById("results_list");
+const result2 = document.getElementById("studio-info-header");
 
 function initMapYoga() {
   var center = new google.maps.LatLng(48.86667, 2.349014);
@@ -84,38 +85,24 @@ function initMapMedit() {
 }
 
 function initMapStudio() {
-  console.log("here");
+  const [, , placeIdURL] = window.location.pathname.split("/");
+  console.log(placeIdURL);
+
   var center = new google.maps.LatLng(48.86667, 2.349014);
   map = new google.maps.Map(document.getElementById("map"), {
     center: center,
     zoom: 12
   });
 
-  request = {
-    location: center,
-    radius: "1000",
-    name: ["yoga"]
-  };
   infoWindow = new google.maps.InfoWindow();
 
   service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, callback);
-
-  google.maps.event.addListener(map, "click", function(event) {
-    result1.innerHTML = "";
-    clearResults(markers);
-    const latLng = {
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng()
-    };
-
-    var request = {
-      location: latLng,
-      radius: "1000",
-      name: ["yoga"]
-    };
-    service.nearbySearch(request, callback);
-  });
+  service.getDetails(
+    {
+      placeId: placeIdURL
+    },
+    callback2
+  );
 
   const geocoder = new google.maps.Geocoder();
 
@@ -124,13 +111,30 @@ function initMapStudio() {
 }
 
 function callback(results, status) {
+  if (!Array.isArray(results)) results = [results];
+
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (let i = 0; i < results.length; i++) {
       markers.push(createMarker(results[i]));
     }
     for (let i = 0; i < results.length; i++) {
       console.log("photo", results[i].photos);
-      result1.innerHTML += `<a href="/studio/${results[i].id}}"><li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li></a>`;
+      result1.innerHTML += `<a href="/studio/${results[i].place_id}"><li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li></a>`;
+      console.log(results);
+    }
+  }
+}
+
+function callback2(results, status) {
+  if (!Array.isArray(results)) results = [results];
+
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (let i = 0; i < results.length; i++) {
+      markers.push(createMarker(results[i]));
+    }
+    for (let i = 0; i < results.length; i++) {
+      result2.innerHTML += `<h1 id="studio-name">${results[0].name}</h1>
+      <p id="studio-address">${results[0].vicinity}</p>`;
       console.log(results);
     }
   }
@@ -209,6 +213,5 @@ if (location.pathname == "/yoga") {
 } else if (location.pathname == "/meditation") {
   google.maps.event.addDomListener(window, "load", initMapMedit);
 } else if (window.location.pathname.match(/studio/g)) {
-  console.log("here2");
   google.maps.event.addDomListener(window, "load", initMapStudio);
 }
