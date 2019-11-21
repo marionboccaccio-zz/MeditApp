@@ -1,0 +1,35 @@
+.account-info {
+    margin: 20px 50px;
+    width: 500px;
+    border: 1px solid black;
+    padding: 50px 50px;
+}
+
+.account-user {
+    color: burlywood;
+    margin: 20px 200px 50px;
+}
+
+.account-row {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.accont-info {
+    padding: 0px 10px;
+}
+
+.account-input {
+    font-size: 15px;
+    border: none;
+    border-radius: 30px;
+    width: 200px;
+}
+
+#submitBtn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    color: burlywood;
+    margin-left: 175px;
+}

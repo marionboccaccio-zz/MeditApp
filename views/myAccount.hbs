@@ -1,36 +1,38 @@
-<h1>Hello {{user.name}}</h1>
-<div class="account-info">
-    <div class="row" id="userName">
-        <p>Name:</p>
-        <input id="name" type="text" name="name" value="{{user.name}}">
-        <label class="btn-edit" for="name"><i class="fas fa-pen"></i></label>
-    </div>
-    <div class="row" id="userLastname">
-        <p>Last name:</p>
-        <input id="lastname" type="text" name="lastname" value="{{user.lastname}}">
-        <label class="btn-edit" for="lastname"><i class="fas fa-pen"></i></label>
-    </div>
-    <div class="row" id="userEmail">
-        <p>Email:</p>
-        <input id="email" type="text" name="email" value="{{user.email}}">
-        <label class="btn-edit" for="email"><i class="fas fa-pen"></i></label>
-    </div>
-    <div class="row" id="user-mainAddress">
-        <p>Main Address:</p>
-        <input id="mainAddress" type="text" name="mainAddress"
-            value="{{user.mainAddress}}">
-        <label class="btn-edit" for="mainAddress"> <i class="fas fa-pen"></i></label>
-    </div>
-    <div class="row" id="user-otherAddress">
-        <p>Other Address:</p>
-        <input id="otherAddress" data-otherAddress="{{user.otherAddress}}" type="text" name="otherAddress"
-            value="{{user.otherAddress}}">
-        <label class="btn-edit" for="otherAddress"> <i class="fas fa-pen"></i></label>
-    </div>
-    <div id="userCategory">
-        <label for="category">Category: {{user.category}}</label>
+<h1 class="account-user">Hello {{user.name}}</h1>
 
-        <select name="category" id="category" class="input">
+<div class="account-info">
+
+    <div class="account-row" id="userName">
+        <p class="accont-info">Name:</p>
+        <input class="accont-info account-input" id="name" type="text" name="name" value="{{user.name}}">
+        <label class="accont-info btn-edit" for="name"><i class="fas fa-pen"></i></label>
+    </div>
+    <div class="account-row" id="userLastname">
+        <p class="accont-info">Last name:</p>
+        <input class="accont-info account-input" id="lastname" type="text" name="lastname" value="{{user.lastname}}">
+        <label class="btn-edit accont-info" for="lastname"><i class="fas fa-pen"></i></label>
+    </div>
+    <div class="account-row" id="userEmail">
+        <p class="accont-info">Email:</p>
+        <input class="accont-info account-input" id="email" type="text" name="email" value="{{user.email}}">
+        <label class="btn-edit accont-info" for="email"><i class="fas fa-pen"></i></label>
+    </div>
+    <div class="account-row" id="user-mainAddress">
+        <p class="accont-info">Main Address:</p>
+        <input class="accont-info account-input" id="mainAddress" type="text" name="mainAddress"
+            value="{{user.mainAddress}}">
+        <label class="btn-edit accont-info" for="mainAddress"> <i class="fas fa-pen"></i></label>
+    </div>
+    <div class="account-row" id="user-otherAddress">
+        <p class="accont-info">Other Address:</p>
+        <input class="accont-info account-input" id="otherAddress" data-otherAddress="{{user.otherAddress}}" type="text"
+            name="otherAddress" value="{{user.otherAddress}}">
+        <label class="btn-edit accont-info" for="otherAddress"> <i class="fas fa-pen"></i></label>
+    </div>
+    <div class="account-row" id="userCategory">
+        <label class="accont-info" for="category">Category: {{user.category}}</label>
+
+        <select name="category" id="user-category" class="account-input accont-info">
             <option value="yoga">yoga</option>
             <option value="meditation">meditation</option>
         </select>
