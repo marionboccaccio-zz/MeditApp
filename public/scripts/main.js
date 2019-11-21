@@ -90,7 +90,7 @@ function callback(results, status) {
     }
     for (let i = 0; i < results.length; i++) {
       console.log("photo", results[i].photos);
-      result1.innerHTML += `<a href="/yoga/${results[i].id}}"><li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li></a>`;
+      result1.innerHTML += `<a href="/studio/${results[i].id}}"><li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li></a>`;
       console.log(results);
     }
   }
@@ -171,4 +171,7 @@ if (location.pathname == "/yoga") {
   google.maps.event.addDomListener(window, "load", initMapYoga);
 } else if (location.pathname == "/meditation") {
   google.maps.event.addDomListener(window, "load", initMapMedit);
+}
+if (location.pathname == "/studio/:id") {
+  google.maps.event.addDomListener(window, "load", initMapYoga);
 }
