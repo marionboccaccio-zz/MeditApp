@@ -1,7 +1,6 @@
 .studio-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 
 
@@ -9,14 +8,18 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 80vh;
+    height: 100vh;
     margin-bottom: 50px;
+}
+
+.hidden {
+    display: none;
 }
 
 .studio-info {
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: 100vh;
 }
 
 .studio-name {
@@ -40,6 +43,6 @@
     /* max-height: 600px; */
 }
 
-.reviews-container {
-    height: 20vh;
+.info_link {
+    display: inline-block;
 }

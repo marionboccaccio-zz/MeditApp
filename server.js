@@ -89,7 +89,6 @@ app.get("/", (req, res) => {
 const userRouter = require("./routes/user.js");
 const authRouter = require("./routes/auth.js");
 const apiRouter = require("./routes/api.js");
-const reviewRouter = require("./routes/review.js");
 const yogaRouter = require("./routes/yoga.js");
 const meditationRouter = require("./routes/meditation.js");
 const aboutRouter = require("./routes/about.js");
@@ -97,7 +96,6 @@ const aboutRouter = require("./routes/about.js");
 app.use(userRouter);
 app.use(authRouter);
 app.use("/api", apiRouter);
-app.use(reviewRouter);
 app.use(yogaRouter);
 app.use(meditationRouter);
 app.use(aboutRouter);

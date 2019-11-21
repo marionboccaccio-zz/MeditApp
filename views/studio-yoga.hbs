@@ -11,26 +11,32 @@
           <img src={{studio.picture.[0]}} alt="studio-img-defaut" class="studio-img">
         </div>
       </div>
+
+      {{#if isLoggedIn}}
       <form method="post" action="/edit-studio/{{studio._id}}" class="add-info-form" enctype="multipart/form-data">
         <div class="flexed-item">
           <label class="model-edit" for="picture"><span class="fas fa-plus">Add a picture</span></label>
           <input id="picture" type="file" name="picture" value="">
         </div>
+        <p class="info_link">{{studio.link}}</p>
         <div class="flexed-item">
-          <p class="info_link">{{studio.link}}</p>
           <label class="model-edit" for="link"><span class="fas fa-plus">Add a link</span></label>
           <input id="link" type="text" name="link" value="">
         </div>
         <button class="btn-submit">Add</button>
       </form>
+      {{/if}}
 
+      {{#if isLoggedIn}}
       <form method="post" action="/add-review/{{studio._id}}" class="add-review">
         <div class="flexed-item">
           <label class="model-edit" for="comment"><span class="fas fa-plus">Add a review</span></label>
           <input id="comment" type="text" name="comment" value="">
+          <input class="hidden" type="text" name="place_id" value={{studio.place_id}}>
         </div>
         <button class="btn-submit">Add</button>
       </form>
+      {{/if}}
 
     </div>
 
@@ -42,7 +48,13 @@
 
   "<div class="reviews-container">
     <h3>Reviews</h3>
-    <p>Nom du user</p>
-    <p>Review associé au studio</p>
+
+    {{#unless review}}
+    <p>Sorry, no reviews yet !</p>
+    {{/unless}}
+    {{#each review}}
+    <p>{{this.user.name}} {{this.user.lastname}}</p>
+    <p>{{this.comment}}</p>
+    {{/each}}
   </div>"
 </div>

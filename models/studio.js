@@ -9,7 +9,7 @@ const studioSchema = new Schema({
     type: [String],
     default: "/images/yogaepisod.jpg"
   },
-  review: { type: Schema.Types.ObjectId, ref: "Review" }
+  review: [[{ type: Schema.Types.ObjectId, ref: "Review" }]]
 });
 
 const studioModel = mongoose.model("Studio", studioSchema);

@@ -4,6 +4,7 @@ const user = require("./../models/user");
 const studioModel = require("./../models/studio");
 const reviewModel = require("./../models/review");
 const uploader = require("./../config/cloudinary");
+const protectUserRoute = require("./../middleware/checkLoginStatus");
 
 router.get("/yoga", (req, res) => {
   res.render("yoga", {
@@ -16,10 +17,17 @@ router.get("/studio/:place_id", (req, res) => {
     .findOne({ place_id: req.params.place_id })
     .then(dbRes => {
       if (dbRes) {
-        res.render("studio-yoga", {
-          studio: dbRes,
-          user: req.session.currentUser
-        });
+        console.log(dbRes.id);
+        reviewModel
+          .find({ studio: dbRes.id })
+          .populate("user")
+          .then(result => {
+            console.log(result);
+            res.render("studio-yoga", {
+              studio: dbRes,
+              review: result
+            });
+          });
       } else {
         studioModel
           .create({ place_id: req.params.place_id })
@@ -49,7 +57,8 @@ router.post("/edit-studio/:id", uploader.single("picture"), (req, res) => {
     .findByIdAndUpdate(req.params.id, query, { new: true })
     .then(dbRes => {
       console.log(dbRes);
-      res.send("Ok");
+      res.redirect("/studio/" + dbRes.place_id);
+      // res.send("Ok");
     })
     .catch(dbErr => console.log(dbErr));
 });
@@ -60,11 +69,12 @@ router.post("/add-review/:id", (req, res) => {
     user: req.session.currentUser,
     studio: req.params.id
   };
+
   reviewModel
     .create(newReview, { new: true })
     .then(dbRes => {
       console.log(dbRes);
-      res.send("OK");
+      res.redirect("/studio/" + req.body.place_id);
     })
     .catch(dbErr => console.log(dbErr));
 });
