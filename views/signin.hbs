@@ -1,40 +1,18 @@
-{{!-- <section class="sign form-container">
-    <header class="form-header">
-        <h1 class="form-title">Welcome Back </h1>
-    </header>
-    <form method="post" action="/signin" id="form_user">
-        <div class="form-item-wrapper flexed-item">
-            <label for="email" class="label-ref label">Email</label>
-            <input name="email" id="email" type="email" class="input-text input" placeholder="hanna.marion@gmail.com"
-                required value="hello@yoga.com">
-        </div>
-        <div class="form-item-wrapper flexed-item">
-            <label for="password" class="label-ref label">Password</label>
-            <input name="password" id="password" type="password" class="input-text input" placeholder="••••••" required
-                value="1234">
-        </div>
-        <button class="button-primary white">Log in !</button>
-    </form>
-    <p class="form-sub-infos">Don't have an account yet ? <a href="/signup" class="button-link-form">Sign Up</a></p>
-</section> --}}
-
-{{!-- ____________________ --}}
-
 <p class="tip"></p>
 <div class="cont">
-    <div class="form sign-in">
+    <div class="signin-form">
         <h2 class="welcome">Welcome back,</h2>
-        <label>
-            <span>Email</span>
-            <input class="input" type="email" />
-        </label>
-        <label>
-            <span>Password</span>
-            <input class="input" type="password" />
-        </label>
-        <p class="forgot-pass">Forgot password?</p>
-        <a href="/" type="button" class="submit">Sign In</a>
-        <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
+        <form method="post" action="/signin" id="form_user">
+            <label for="email" class="label-ref">Email</label>
+            <input name="email" id="email" type="email" class="input" required>
+            <label for="password" class="label-ref">Password </label>
+            <input name="password" id="password" type="password" class="input" required>
+
+            <p class="forgot-pass">Forgot password?</p>
+            <a href="/" type="button" class="submit">Sign In</a>
+            <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
+
+        </form>
     </div>
     <div class="to-sign-up">
         <h2 class="new">New here?</h2>
