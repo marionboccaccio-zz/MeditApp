@@ -18,19 +18,27 @@
 }
 
 #results_list {
-    height: 400px;
-    width: 500px;
+    max-height: 60vh;
+    max-width: 50vw;
     margin-right: 100px;
     padding-bottom: 50px;
     overflow: auto;
     padding-bottom: 20px;
-
 }
 
+#results_list:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
 
 .container-map {
     height: 500px;
-    width: 700px;
+    width: 600px;
 }
 
 
@@ -56,6 +64,7 @@
 
 #find {
     width: 200px;
+    margin-bottom: 20px;
     border: 1px solid rgb(226, 177, 162);
     background-color: rgb(226, 177, 162);
     color: white;
@@ -65,6 +74,7 @@
 #check {
     width: 200px;
     padding-left: 20px;
+    margin-bottom: 20px;
     border: 2px solid rgb(226, 177, 162);
     color: rgb(226, 177, 162);
 }
