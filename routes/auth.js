@@ -80,10 +80,10 @@ router.get("/my-account", (req, res) => {
 router.post("/edit-account/:id", (req, res) => {
   const updateUser = req.body;
   user
-    .findOneAndUpdate({ _id: req.params.id }, updateUser)
+    .findOneAndUpdate({ _id: req.params.id }, updateUser, { new: true })
     .then(dbres => {
       req.session.currentUser = dbres;
-      res.redirect("/my-account");
+      res.send(dbres);
     })
     .catch(err => console.log(err));
 });

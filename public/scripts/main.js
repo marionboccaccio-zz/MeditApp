@@ -5,6 +5,7 @@ var request;
 var service;
 var markers = [];
 const result1 = document.getElementById("results_list");
+const result2 = document.getElementById("studio-info-header");
 
 function initMapYoga() {
   var center = new google.maps.LatLng(48.86667, 2.349014);
@@ -83,14 +84,57 @@ function initMapMedit() {
   geocodeOtherAddress(geocoder, map);
 }
 
+function initMapStudio() {
+  const [, , placeIdURL] = window.location.pathname.split("/");
+  console.log(placeIdURL);
+
+  var center = new google.maps.LatLng(48.86667, 2.349014);
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: center,
+    zoom: 12
+  });
+
+  infoWindow = new google.maps.InfoWindow();
+
+  service = new google.maps.places.PlacesService(map);
+  service.getDetails(
+    {
+      placeId: placeIdURL
+    },
+    callback2
+  );
+
+  const geocoder = new google.maps.Geocoder();
+
+  geocodeMainAddress(geocoder, map);
+  geocodeOtherAddress(geocoder, map);
+}
+
 function callback(results, status) {
+  if (!Array.isArray(results)) results = [results];
+
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (let i = 0; i < results.length; i++) {
       markers.push(createMarker(results[i]));
     }
     for (let i = 0; i < results.length; i++) {
       console.log("photo", results[i].photos);
-      result1.innerHTML += `<a href="/yoga/${results[i].id}}"><li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li></a>`;
+      result1.innerHTML += `<a href="/studio/${results[i].place_id}"><li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li></a>`;
+      console.log(results);
+    }
+  }
+}
+
+function callback2(results, status) {
+  if (!Array.isArray(results)) results = [results];
+
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (let i = 0; i < results.length; i++) {
+      markers.push(createMarker(results[i]));
+    }
+    for (let i = 0; i < results.length; i++) {
+      result2.innerHTML += `<h1 id="studio-name">${results[0].name}</h1>
+      <p id="studio-address">${results[0].vicinity}</p>`;
       console.log(results);
     }
   }
@@ -122,7 +166,6 @@ function clearResults(markers) {
 
 function geocodeMainAddress(geocoder, resultsMap) {
   let address = document.getElementById("map").getAttribute("data-mainAddress");
-
   geocoder.geocode({ address: address }, function(results, status) {
     if (status === "OK") {
       resultsMap.setCenter(results[0].geometry.location);
@@ -141,7 +184,6 @@ function geocodeMainAddress(geocoder, resultsMap) {
     }
   });
 }
-
 function geocodeOtherAddress(geocoder, resultsMap) {
   let address = document
     .getElementById("map")
@@ -166,9 +208,10 @@ function geocodeOtherAddress(geocoder, resultsMap) {
   });
 }
 
-// console.log(markers);
 if (location.pathname == "/yoga") {
   google.maps.event.addDomListener(window, "load", initMapYoga);
 } else if (location.pathname == "/meditation") {
   google.maps.event.addDomListener(window, "load", initMapMedit);
+} else if (window.location.pathname.match(/studio/g)) {
+  google.maps.event.addDomListener(window, "load", initMapStudio);
 }
