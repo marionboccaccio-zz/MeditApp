@@ -102,6 +102,6 @@ app.use(yogaRouter);
 app.use(meditationRouter);
 app.use(aboutRouter);
 
-const listener = app.listen(process.env.PORT, () => {
+const listener = app.listen(process.env.PORT || 5000, () => {
   console.log(`app started at ${process.env.SITE_URL}:${process.env.PORT}`);
 });
