@@ -1,13 +1,5 @@
-/* @import './reset.css'; */
 @import './navbar.css';
 @import './footer.css';
-/* @import './form.css';
-@import './button.css';
-@import './products.css';
-@import './products-forms.css';
-@import './products-manage.css';
-@import './login-signup.css';
- */
 @import './home.css';
 @import './yoga.css';
 @import './meditation.css';
@@ -54,6 +46,7 @@ h4 {
     display: flex;
 }
 
-.main {
-    margin-top: 70px;
+.main-body {
+    margin: 70px 0px 20px;
+    min-height: 100vh;
 }
