@@ -8,34 +8,40 @@
       <div class="studio-image">
 
         <div class="studio-img-container">
-          <img src="/images/yogaepisod.jpg" alt="studio-img-defaut" class="studio-img">
+          <img src={{studio.picture.[0]}} alt="studio-img-defaut" class="studio-img">
         </div>
-        <span class="fas fa-plus">Add a picture</span>
       </div>
+      <form method="post" action="/edit-studio/{{studio._id}}" class="add-info-form" enctype="multipart/form-data">
+        <div class="flexed-item">
+          <label class="model-edit" for="picture"><span class="fas fa-plus">Add a picture</span></label>
+          <input id="picture" type="file" name="picture" value="">
+        </div>
+        <div class="flexed-item">
+          <label class="model-edit" for="link"><span class="fas fa-plus">Add a link</span></label>
+          <input id="link" type="text" name="link" value="">
+        </div>
+        <button class="btn-submit">Add</button>
+      </form>
 
-      <div class="flexed-item">
-        <span class="fas fa-plus">Add a link</span>
-        <input id="link-studio" type="text" name="link" value="ADD A LINK">
-        <label class="model-edit" for="link"></label>
-      </div>
-
-      <div class="flexed-item">
-        <span class="fas fa-plus">Add a review</span>
-        <input id="review-studio" type="text" name="review" value="ADD A REVIEW">
-        <label class="model-edit" for="review"></label>
-      </div>
+      <form method="post" action="/studio/{{studio.place_id}} " class="add-review" enctype="multipart/form-data">
+        <div class="flexed-item">
+          <label class="model-edit" for="review"><span class="fas fa-plus">Add a review</span></label>
+          <input id="review" type="text" name="review" value="">
+        </div>
+        <button class="btn-submit">Add</button>
+      </form>
 
     </div>
 
 
     <div id="map" data-mainAddress="{{user.mainAddress}}" data-otherAddress="{{user.otherAddress}}"> </div>
 
-
   </div>
 
-  <div class="reviews-container">
+
+  {{!-- "<div class="reviews-container">
     <h3>Reviews</h3>
     <p>Nom du user</p>
     <p>Review associé au studio</p>
-  </div>
+  </div>" --}}
 </div>
