@@ -1,5 +1,5 @@
-const express = require("express"); // import express in this module
-const router = new express.Router(); // create an app sub-module (router)
+const express = require("express");
+const router = new express.Router();
 // const flash = require("connect-flash");
 const user = require("./../models/user");
 const bcrypt = require("bcrypt");
@@ -37,30 +37,24 @@ router.post("/signup", (req, res) => {
 
 // SIGN IN
 router.get("/signin", (req, res) => {
-  console.log("YEAH, SIGN IN");
   res.render("signin");
 });
 
 router.post("/signin", (req, res) => {
-  user
-    .findOne({ email: req.body.email })
-    .then(dbRes => {
-      if (!dbRes) {
-        // req.flash("error", "You don't have an account yet. Please sign up");
-        res.redirect("/signup");
-      } else {
-        if (bcrypt.compareSync(req.body.password, dbRes.password)) {
-          req.session.currentUser = dbRes;
-          //   req.flash("success", "Welcome");
-          res.redirect("/");
-        }
-        // req.flash("error", "wrong credentials");
-        res.redirect("/signin");
+  user.findOne({ email: req.body.email }).then(dbRes => {
+    if (!dbRes) {
+      // req.flash("error", "You don't have an account yet. Please sign up");
+      res.redirect("/signup");
+    } else {
+      if (bcrypt.compareSync(req.body.password, dbRes.password)) {
+        req.session.currentUser = dbRes;
+        //   req.flash("success", "Welcome");
+        res.redirect("/");
       }
-    })
-    .catch(dbErr => {
-      console.log(dbErr);
-    });
+      // req.flash("error", "wrong credentials");
+      res.redirect("/signin");
+    }
+  });
 });
 
 // LOG OUT

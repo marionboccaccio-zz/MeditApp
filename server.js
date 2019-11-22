@@ -86,14 +86,12 @@ app.get("/", (req, res) => {
 // const basePageRouter = require("./routes/index");
 // app.use("/", basePageRouter);
 
-const userRouter = require("./routes/user.js");
 const authRouter = require("./routes/auth.js");
 const apiRouter = require("./routes/api.js");
 const yogaRouter = require("./routes/yoga.js");
 const meditationRouter = require("./routes/meditation.js");
 const aboutRouter = require("./routes/about.js");
 
-app.use(userRouter);
 app.use(authRouter);
 app.use("/api", apiRouter);
 app.use(yogaRouter);

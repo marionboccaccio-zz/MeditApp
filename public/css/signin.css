@@ -132,14 +132,13 @@ body {
 
 .forgot-pass {
   margin-top: 15px;
-  margin-bottom: 89px;
+  margin-bottom: 76px;
   text-align: center;
   font-size: 12px;
   color: #cfcfcf;
 }
 
-.submit {
-  margin-top: 90px;
+.submit-signin {
   margin-bottom: 12px;
   color: white;
   border: solid 1px #d4af7a;
