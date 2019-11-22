@@ -13,8 +13,8 @@ const userSchema = new Schema({
     type: String,
     enum: ["yoga", "meditation"]
   },
-  reviews: { type: Schema.Types.ObjectId, ref: "Review" },
-  favoris: { type: Schema.Types.ObjectId, ref: "Studio" }
+  reviews: { type: Schema.Types.ObjectId, ref: "Review" }
+  // favoris: { type: Schema.Types.ObjectId, ref: "Studio" }
 });
 
 const userModel = mongoose.model("User", userSchema);
