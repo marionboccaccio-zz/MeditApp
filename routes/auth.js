@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-// const flash = require("connect-flash");
+const flash = require("flash");
 const user = require("./../models/user");
 const bcrypt = require("bcrypt");
 const protectUserRoute = require("./../middleware/checkLoginStatus");
@@ -15,7 +15,7 @@ router.post("/signup", (req, res) => {
     .findOne({ email: req.body.email })
     .then(dbRes => {
       if (dbRes) {
-        // req.flash("error", "You already have an account, please signin :)");
+        req.flash("error", "You already have an account, please signin :)");
         res.redirect("/signin");
       } else {
         const salt = bcrypt.genSaltSync(10);
@@ -24,8 +24,7 @@ router.post("/signup", (req, res) => {
 
         user.create(req.body).then(result => {
           req.session.currentUser = result;
-          console.log(result);
-          //   req.flash("success", "Welcome");
+          req.flash("success", "Welcome");
           res.redirect("/");
         });
       }
@@ -43,15 +42,15 @@ router.get("/signin", (req, res) => {
 router.post("/signin", (req, res) => {
   user.findOne({ email: req.body.email }).then(dbRes => {
     if (!dbRes) {
-      // req.flash("error", "You don't have an account yet. Please sign up");
-      res.redirect("/signup");
+      req.flash("error", "Wrong credentials");
+      res.redirect("/signin");
     } else {
       if (bcrypt.compareSync(req.body.password, dbRes.password)) {
         req.session.currentUser = dbRes;
-        //   req.flash("success", "Welcome");
+        req.flash("success", "Welcome");
         res.redirect("/");
       }
-      // req.flash("error", "wrong credentials");
+      req.flash("error", "wrong credentials");
       res.redirect("/signin");
     }
   });

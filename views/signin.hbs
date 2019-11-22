@@ -8,6 +8,9 @@
             <label for="password" class="label-ref">Password </label>
             <input name="password" id="password" type="password" class="input" required>
             <p class="forgot-pass">Forgot password?</p>
+            <div class="flashMessage">
+                {{> flash_message}} <i id="bell" class="fas fa-bell"></i>
+            </div>
             <button class="submit-signin">Sign In</button>
             <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
         </form>
