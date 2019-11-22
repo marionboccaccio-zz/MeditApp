@@ -4,57 +4,71 @@
       <div id="studio-info-header">
       </div>
       <i class="fas fa-heart"></i>
+      <a class="studio_link" href="{{studio.link}}">{{studio.link}}</a>
 
       <div class="studio-image">
 
-        <div class="studio-img-container">
-          <img src={{studio.picture.[0]}} alt="studio-img-defaut" class="studio-img">
+        <div class="slideshow-container">
+
+          {{#each studio.picture}}
+          <div class="mySlides fade"><img src={{this}} alt="studio-img-defaut" style="width:100%"></div>
+          {{/each}}
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
+        <br>
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
       </div>
 
       {{#if isLoggedIn}}
       <form method="post" action="/edit-studio/{{studio._id}}" class="add-info-form" enctype="multipart/form-data">
-        <div class="flexed-item">
+        <div class="flexed-item-studio">
           <label class="model-edit" for="picture"><span class="fas fa-plus">Add a picture</span></label>
           <input id="picture" type="file" name="picture" value="">
         </div>
-        <p class="info_link">{{studio.link}}</p>
-        <div class="flexed-item">
+
+        <div class="flexed-item-studio">
           <label class="model-edit" for="link"><span class="fas fa-plus">Add a link</span></label>
           <input id="link" type="text" name="link" value="">
         </div>
-        <button class="btn-submit">Add</button>
+        <button class="btn-submit-studio">Add info</button>
       </form>
       {{/if}}
 
       {{#if isLoggedIn}}
       <form method="post" action="/add-review/{{studio._id}}" class="add-review">
-        <div class="flexed-item">
+        <div class="flexed-item-studio">
           <label class="model-edit" for="comment"><span class="fas fa-plus">Add a review</span></label>
           <input id="comment" type="text" name="comment" value="">
           <input class="hidden" type="text" name="place_id" value={{studio.place_id}}>
         </div>
-        <button class="btn-submit">Add</button>
+        <button class="btn-submit-studio">Add Review</button>
       </form>
       {{/if}}
 
     </div>
 
-
     <div id="map" data-mainAddress="{{user.mainAddress}}" data-otherAddress="{{user.otherAddress}}"> </div>
-
   </div>
 
 
   "<div class="reviews-container">
-    <h3>Reviews</h3>
+    <h3 class="review-title">Reviews</h3>
 
     {{#unless review}}
-    <p>Sorry, no reviews yet !</p>
+    <p class="no-review">Sorry, no reviews yet !</p>
     {{/unless}}
+
     {{#each review}}
-    <p>{{this.user.name}} {{this.user.lastname}}</p>
-    <p>{{this.comment}}</p>
+    <div class="one-review">
+      <p>{{this.user.name}} {{this.user.lastname}} : <span>{{this.comment}}</span></p>
+
+    </div>
     {{/each}}
   </div>"
 </div>
