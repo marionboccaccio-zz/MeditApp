@@ -11,7 +11,3 @@ mongoose
   .catch(err => {
     console.error("error", () => console.log("nay db error sorry :("));
   });
-
-// mongoose.connection.on("connected", () => console.log("yay mongodb connected :)"));
-
-// mongoose.connection.on("error", () => console.log("nay db error sorry :("));

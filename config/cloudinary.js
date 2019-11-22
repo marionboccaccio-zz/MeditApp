@@ -11,10 +11,6 @@ cloudinary.config({
 const storage = cloudinaryStorage({
   cloudinary,
   folder: "user-pictures"
-  //  params below is only needed if uploading media types other than images (video, audio...)
-  // params: {
-  //     ressource_type: "raw"
-  // }
 });
 
 const fileUploader = multer({ storage });
