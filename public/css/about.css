@@ -5,12 +5,29 @@
 }
 
 .about-title {
-    margin-bottom: 30px;
+
+    margin-left: 40px;
     color: burlywood;
+
 }
 
 .about-description {
     font-size: 18px;
     text-align: justify;
     width: 90%;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.cont-about {
+
+    overflow: hidden;
+    position: relative;
+    height: 437px;
+    margin: 1px auto 48px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    justify-content: space-around;
 }

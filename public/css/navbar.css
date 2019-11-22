@@ -12,7 +12,8 @@
 .nav-wrapper {
     border-bottom: 1px solid rgb(212, 212, 212);
     height: 53px;
-    padding: 0 1.2rem;
+    /* padding: 0 1.2rem; */
+    padding: 10px 10px;
 }
 
 .nav-logo {
@@ -92,4 +93,47 @@ h2.logo-item {
     text-transform: uppercase;
     font-size: .8rem;
     font-weight: 400;
+}
+
+.flexed-item {
+    display: flex;
+    padding-top: 10px;
+}
+
+
+.nav-container {
+    padding: 10px;
+    display: flex;
+    height: 53px;
+    background-color: white;
+}
+
+.flex-item {
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.nav-right {
+    align-items: center;
+    margin-left: auto;
+}
+
+.nav-left {
+    align-items: center;
+}
+
+.nav-list-item {
+    margin-right: 20px;
+
+}
+
+.nav-list-item:hover {
+    box-shadow: inset 0 -3px 0 0 pink;
 }

@@ -1,11 +1,24 @@
-.main {
-    margin-top: 70px;
-    margin-bottom: 50px;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+/* .main-body {
+    margin: 73px 0px 20px;
+    min-height: 83vh;
+} */
+
 
 .container-box {
     display: flex;
     flex-direction: row;
+    margin-bottom: 62px;
+    margin-top: 40px;
+    margin-left: 95px;
+
 }
 
 .container-list {
@@ -77,6 +90,8 @@ a {
     color: rgb(226, 177, 162);
 }
 
-li {
+
+
+/* li {
     padding-bottom: 20px;
-}
+} */

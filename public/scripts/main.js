@@ -119,7 +119,7 @@ function callback(results, status) {
     }
     for (let i = 0; i < results.length; i++) {
       console.log("photo", results[i].photos);
-      result1.innerHTML += `<a href="/studio/${results[i].place_id}"><li><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li></a>`;
+      result1.innerHTML += `<a href="/studio/${results[i].place_id}"><li class="studio-list-item"><span style="font-weight: bold; color:rgb(226, 177, 162)">${results[i].name}</span> : <br> ${results[i].vicinity} <br></li></a>`;
       console.log(results);
     }
   }

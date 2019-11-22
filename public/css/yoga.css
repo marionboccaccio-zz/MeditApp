@@ -1,11 +1,17 @@
-.main {
-    margin-top: 70px;
-    margin-bottom: 50px;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .container-box {
     display: flex;
     flex-direction: row;
+    margin-bottom: 62px;
+    margin-top: 40px;
+    margin-left: 95px;
 }
 
 .container-list {
@@ -18,18 +24,14 @@
 }
 
 #results_list {
-    max-height: 60vh;
-    max-width: 50vw;
+    height: 400px;
+    width: 500px;
     margin-right: 100px;
     padding-bottom: 50px;
     overflow: auto;
     padding-bottom: 20px;
 }
 
-#results_list:hover {
-    text-decoration: none;
-    cursor: pointer;
-}
 
 a {
     color: black;
@@ -80,6 +82,6 @@ a {
     color: rgb(226, 177, 162);
 }
 
-li {
+.studio-list-item {
     padding-bottom: 20px;
 }
