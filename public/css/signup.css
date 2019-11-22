@@ -77,3 +77,15 @@
     padding: 1px 90px;
     text-decoration: none;
 }
+
+.flashMessage {
+    color: rgb(90, 81, 81);
+    padding: 20px;
+    display: flex;
+    align-content: center;
+}
+
+#bell {
+    display: flex;
+    align-content: center;
+}
