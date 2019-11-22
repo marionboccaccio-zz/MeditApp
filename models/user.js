@@ -14,7 +14,7 @@ const userSchema = new Schema({
     enum: ["yoga", "meditation"]
   },
   reviews: { type: Schema.Types.ObjectId, ref: "Review" }
-  // favoris: { type: Schema.Types.ObjectId, ref: "Studio" }
+  // git
 });
 
 const userModel = mongoose.model("User", userSchema);
